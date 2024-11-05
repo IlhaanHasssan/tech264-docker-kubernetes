@@ -5,6 +5,7 @@
     - [***Benefits of Each, Especially Virtual Machine Over Traditional Architecture***](#benefits-of-each-especially-virtual-machine-over-traditional-architecture)
   - [***Microservices***](#microservices)
   - [***Docker***](#docker-1)
+  - [***Docker Commands***](#docker-commands)
 
 ## ***Differences between Virtualization and Containerization***
 | Feature               | Virtualization                                       | Containerization                                 |
@@ -74,3 +75,14 @@
   Companies like Netflix, Spotify, and PayPal use Docker to scale microservices, reduce deployment times, and increase application efficiency.
 
 ---
+
+## ***Docker Commands***
+- Make sure you run your git bash window as administrator
+- `docker --help`
+- `docker run hello-world` produces a randomly named container 
+- `docker ps` shows which processes are running
+- ` docker run -d -p 80:80 nginx` automatically downloads the latest nginx version
+- `docker ps --help`
+- `docker ps -a`
+- `docker rm <container-name>`
+- `docker exec` executes commands
