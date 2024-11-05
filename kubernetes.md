@@ -27,7 +27,8 @@
   - [***Maintained Images***](#maintained-images)
     - [***What are they?***](#what-are-they)
     - [**Pros and Cons of Using Maintained Images**](#pros-and-cons-of-using-maintained-images)
-    - [Greenfielding vs Brownfielding](#greenfielding-vs-brownfielding)
+  - [***How Terraform and Ansible fit into the bigger picture***](#how-terraform-and-ansible-fit-into-the-bigger-picture)
+  - [***Greenfielding vs Brownfielding***](#greenfielding-vs-brownfielding)
 
 
 ## ***Why is Kubernetes Needed?***
@@ -160,6 +161,7 @@ Some common Kubernetes objects include:
 | **Easier Management**: Reduces burden on teams to build and maintain their own images. | **Potential Licensing Issues**: Maintained images may come with licensing constraints or restrictions. |
 
 ---
+## ***How Terraform and Ansible fit into the bigger picture***
 <br>
 
 ![alt text](./dk-images/image.png)
@@ -167,7 +169,7 @@ Some common Kubernetes objects include:
 <br>
 
 ---
-### Greenfielding vs Brownfielding
+## ***Greenfielding vs Brownfielding***
 - Greenfielding means starting a project or development from scratch. Think of it as building on an empty "green field," where you have no existing structures or constraints to worry about. You get to design everything from the ground up, using the latest tools, technologies, and best practices without dealing with any outdated or legacy systems.
 
 - Brownfielding is the opposite—working on or improving an existing project or system. Imagine building on a "brown field" that already has old buildings or structures on it. In this case, you have to work with or around what’s already there, which may include outdated tech or design choices that make changes or upgrades more complicated.
