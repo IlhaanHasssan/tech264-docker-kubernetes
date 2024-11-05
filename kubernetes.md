@@ -6,24 +6,24 @@
   - [***Success Stories***](#success-stories)
   - [***Kubernetes Architecture: The Cluster Setup***](#kubernetes-architecture-the-cluster-setup)
     - [***What is a Cluster?***](#what-is-a-cluster)
-  - [***Master vs Worker Nodes***](#master-vs-worker-nodes)
-  - [***Pros and Cons of Using Managed Service vs Launching Your Own***](#pros-and-cons-of-using-managed-service-vs-launching-your-own)
-  - [***Control Plane vs Data Plane***](#control-plane-vs-data-plane)
+    - [***Master vs Worker Nodes***](#master-vs-worker-nodes)
+    - [***Pros and Cons of Using Managed Service vs Launching Your Own***](#pros-and-cons-of-using-managed-service-vs-launching-your-own)
+    - [***Control Plane vs Data Plane***](#control-plane-vs-data-plane)
   - [***Kubernetes Objects***](#kubernetes-objects)
     - [***What Does It Mean a Pod is "Ephemeral"?***](#what-does-it-mean-a-pod-is-ephemeral)
   - [***How to Mitigate Security Concerns with Containers***](#how-to-mitigate-security-concerns-with-containers)
-      - [1. ***Use Minimal Base Images***](#1-use-minimal-base-images)
-      - [2. ***Leverage Kubernetes Network Policies***](#2-leverage-kubernetes-network-policies)
-      - [3. ***Implement Pod Security Policies (PSPs)***](#3-implement-pod-security-policies-psps)
-      - [4. ***Enable Role-Based Access Control (RBAC)***](#4-enable-role-based-access-control-rbac)
-      - [5. **Scan Container Images for Vulnerabilities**](#5-scan-container-images-for-vulnerabilities)
-      - [6. ***Implement Secret Management***](#6-implement-secret-management)
-      - [7. ***Enforce Image Provenance and Integrity***](#7-enforce-image-provenance-and-integrity)
-      - [8. ***Limit Container Runtime Privileges***](#8-limit-container-runtime-privileges)
-      - [9. ***Enable Logging and Monitoring***](#9-enable-logging-and-monitoring)
-      - [10. ***Regularly Update and Patch Kubernetes and Container Runtime***](#10-regularly-update-and-patch-kubernetes-and-container-runtime)
-      - [11. ***Use Namespace Segmentation***](#11-use-namespace-segmentation)
-      - [12. ***Restrict API Server Access***](#12-restrict-api-server-access)
+      - [***Use Minimal Base Images***](#use-minimal-base-images)
+      - [***Leverage Kubernetes Network Policies***](#leverage-kubernetes-network-policies)
+      - [***Implement Pod Security Policies (PSPs)***](#implement-pod-security-policies-psps)
+      - [***Enable Role-Based Access Control (RBAC)***](#enable-role-based-access-control-rbac)
+      - [***Scan Container Images for Vulnerabilities***](#scan-container-images-for-vulnerabilities)
+      - [***Implement Secret Management***](#implement-secret-management)
+      - [***Enforce Image Provenance and Integrity***](#enforce-image-provenance-and-integrity)
+      - [***Limit Container Runtime Privileges***](#limit-container-runtime-privileges)
+      - [***Enable Logging and Monitoring***](#enable-logging-and-monitoring)
+      - [***Regularly Update and Patch Kubernetes and Container Runtime***](#regularly-update-and-patch-kubernetes-and-container-runtime)
+      - [***Use Namespace Segmentation***](#use-namespace-segmentation)
+      - [***Restrict API Server Access***](#restrict-api-server-access)
   - [***Maintained Images***](#maintained-images)
     - [***What are they?***](#what-are-they)
     - [**Pros and Cons of Using Maintained Images**](#pros-and-cons-of-using-maintained-images)
@@ -58,14 +58,14 @@ Many companies have adopted Kubernetes for its efficiency and reliability:
 
 A cluster in Kubernetes is a set of nodes (physical or virtual machines) that run containerized applications managed by Kubernetes.
 
-## ***Master vs Worker Nodes***
+### ***Master vs Worker Nodes***
 
 | Component   | Description                                                       |
 |-------------|-------------------------------------------------------------------|
 | **Master Nodes** | Responsible for managing the cluster (scheduling, scaling, etc.). |
 | **Worker Nodes** | Execute the actual containerized applications.               |
 
-## ***Pros and Cons of Using Managed Service vs Launching Your Own***
+### ***Pros and Cons of Using Managed Service vs Launching Your Own***
 
 | Aspect            | Managed Service                              | Own Cluster                            |
 |-------------------|----------------------------------------------|----------------------------------------|
@@ -75,7 +75,7 @@ A cluster in Kubernetes is a set of nodes (physical or virtual machines) that ru
 | **Cons**          | - Less control over certain configurations   | - Requires more maintenance effort     |
 |                   | - Potentially higher cost                    | - Needs dedicated expertise            |
 
-## ***Control Plane vs Data Plane***
+### ***Control Plane vs Data Plane***
 
 | Plane           | Description                                                                   |
 |-----------------|-------------------------------------------------------------------------------|
@@ -97,51 +97,51 @@ Some common Kubernetes objects include:
 
 - Using containers in Kubernetes brings efficiency and scalability, but also unique security challenges. Here are essential strategies for enhancing container security in a Kubernetes environment:
 
-#### 1. ***Use Minimal Base Images***
+#### ***Use Minimal Base Images***
    - Use lightweight, minimal images (like Alpine or Distroless) to reduce the attack surface.
    - Avoid images with unnecessary packages, as these can increase vulnerabilities.
 
-#### 2. ***Leverage Kubernetes Network Policies***
+#### ***Leverage Kubernetes Network Policies***
    - Use **NetworkPolicies** to control traffic between pods, limiting communication only to required services.
    - Define specific ingress and egress rules to block unauthorized access.
 
-#### 3. ***Implement Pod Security Policies (PSPs)***
+#### ***Implement Pod Security Policies (PSPs)***
    - Enforce **Pod Security Standards (PSS)**, such as restricting privileged containers, disallowing host networking, and restricting volume types.
    - Apply `readOnlyRootFilesystem` to prevent modifications within the container file system.
 
-#### 4. ***Enable Role-Based Access Control (RBAC)***
+#### ***Enable Role-Based Access Control (RBAC)***
    - Limit permissions by using **Role-Based Access Control (RBAC)**, granting only the necessary permissions to users, service accounts, and applications.
    - Regularly audit RBAC policies to ensure permissions follow the principle of least privilege.
 
-#### 5. **Scan Container Images for Vulnerabilities**
+#### ***Scan Container Images for Vulnerabilities***
    - Use tools like **Trivy**, **Clair**, or **Aqua** to scan container images for known vulnerabilities before deploying them.
    - Integrate image scanning into CI/CD pipelines to catch vulnerabilities early.
 
-#### 6. ***Implement Secret Management***
+#### ***Implement Secret Management***
    - Avoid storing sensitive information (like passwords or API keys) directly in images or environment variables.
    - Use Kubernetes **Secrets** and tools like **HashiCorp Vault** to manage secrets securely.
 
-#### 7. ***Enforce Image Provenance and Integrity***
+#### ***Enforce Image Provenance and Integrity***
    - Verify the source of container images and use signed images (e.g., **Notary**, **cosign**).
    - Limit images to those from trusted registries, preferably private or organizational ones.
 
-#### 8. ***Limit Container Runtime Privileges***
+#### ***Limit Container Runtime Privileges***
    - Avoid running containers as the root user. Instead, specify a non-root user in your `Dockerfile` or `Pod` spec.
    - Set the `runAsNonRoot` and `allowPrivilegeEscalation=false` in Pod specifications to prevent unnecessary privilege escalation.
 
-#### 9. ***Enable Logging and Monitoring***
+#### ***Enable Logging and Monitoring***
    - Use Kubernetes logging and monitoring tools (e.g., **Prometheus**, **Fluentd**, **Grafana**) to track container activity and detect anomalies.
    - Enable **Audit Logs** in Kubernetes to monitor access and modifications to cluster resources.
 
-#### 10. ***Regularly Update and Patch Kubernetes and Container Runtime***
+#### ***Regularly Update and Patch Kubernetes and Container Runtime***
    - Ensure Kubernetes components (e.g., API server, kubelet) are up-to-date with the latest security patches.
    - Keep the container runtime (e.g., Docker, containerd) and node OS updated to minimize vulnerabilities.
 
-#### 11. ***Use Namespace Segmentation***
+#### ***Use Namespace Segmentation***
    - Segment workloads across different namespaces, especially to isolate sensitive or high-risk applications.
    - Use network policies and resource quotas within namespaces to enforce further isolation.
 
-#### 12. ***Restrict API Server Access***
+#### ***Restrict API Server Access***
    - Limit access to the Kubernetes API server to only trusted IPs and enforce multi-factor authentication (MFA) for administrative access.
    - Disable anonymous access and limit the use of insecure ports.
 
