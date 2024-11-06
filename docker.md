@@ -13,8 +13,11 @@
     - [***Step 2: Push the Image to Docker Hub***](#step-2-push-the-image-to-docker-hub)
     - [***Step 3: Run the Image from Docker Hub***](#step-3-run-the-image-from-docker-hub)
   - [***Automate Creation of a Custom NGINX Docker Image with Modified index.html***](#automate-creation-of-a-custom-nginx-docker-image-with-modified-indexhtml)
-- [Use the official NGINX base image](#use-the-official-nginx-base-image)
-- [Copy custom index.html to NGINX default location](#copy-custom-indexhtml-to-nginx-default-location)
+    - [***Step 1: Set Up the Folder Structure***](#step-1-set-up-the-folder-structure)
+    - [***Step 2: Copy custom index.html to NGINX default location***](#step-2-copy-custom-indexhtml-to-nginx-default-location)
+    - [***Step 3: Build the Custom Docker Image***](#step-3-build-the-custom-docker-image)
+    - [***Step 4: Push the Custom Image to Docker Hub***](#step-4-push-the-custom-image-to-docker-hub)
+    - [***Step 5: Run the Container to Test the Image***](#step-5-run-the-container-to-test-the-image)
 
 ## ***Differences between Virtualization and Containerization***
 | Feature               | Virtualization                                       | Containerization                                 |
@@ -187,6 +190,10 @@ docker run -d -p 90:80 ihassan777/custom-nginx-image:latest
 ```
 ![alt text](image-10.png)
 
+<br>
+
+![alt text](image-14.png)
+
 5. Test the Container: 
    - Open **http://localhost:90** in a browser to verify your custom **index.html** content.
    
@@ -195,68 +202,45 @@ docker run -d -p 90:80 ihassan777/custom-nginx-image:latest
 
 ## ***Automate Creation of a Custom NGINX Docker Image with Modified index.html***
 
-Step 1: Set Up the Folder Structure
-Create a New Folder:
+### ***Step 1: Set Up the Folder Structure***
+1. Create a New Folder named **`tech264-mod-nginx-dockerfile`**
 
-bash
-Copy code
-mkdir tech2xx-mod-nginx-dockerfile
-cd tech2xx-mod-nginx-dockerfile
-Create an index.html File:
+![alt text](image-11.png)
 
-bash
-Copy code
-touch index.html
-Edit index.html: Add your custom HTML content.
+<br>
 
-html
-Copy code
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom NGINX Page</title>
-</head>
-<body>
-    <h1>Hello, this is a custom NGINX page!</h1>
-</body>
-</html>
-Step 2: Create the Dockerfile
-Create a Dockerfile:
+![alt text](image-12.png)
 
-bash
-Copy code
-touch Dockerfile
-Edit the Dockerfile:
+### ***Step 2: Copy custom index.html to NGINX default location***
+![alt text](image-13.png)
+<br>
 
-dockerfile
-Copy code
-# Use the official NGINX base image
-FROM nginx:latest
+### ***Step 3: Build the Custom Docker Image***
+- Build the Image:
 
-# Copy custom index.html to NGINX default location
-COPY index.html /usr/share/nginx/html/index.html
-Step 3: Build the Custom Docker Image
-Build the Image:
+```bash
+docker build -t ihassan777/tech264-nginx-auto:v1 .
+```
+- Verify the Image is there:
 
-bash
-Copy code
-docker build -t <your-dockerhub-username>/tech2xx-nginx-auto:v1 .
-Verify the Image:
-
-bash
-Copy code
+```bash
 docker images
-Step 4: Push the Custom Image to Docker Hub
-Push the Image:
-bash
-Copy code
-docker push <your-dockerhub-username>/tech2xx-nginx-auto:v1
-Step 5: Run the Container to Test the Image
-Run the Container:
+```
+### ***Step 4: Push the Custom Image to Docker Hub***
+- Tag your image appropriagely:
 
-bash
-Copy code
-docker run -d -p 90:80 <your-dockerhub-username>/tech2xx-nginx-auto:v1
-Test the Container: Open http://localhost:90 in a browser to verify your custom index.html content.
+![alt text](image-16.png)
+
+- Push the Image:
+
+![alt text](image-15.png)
+
+<br>
+
+### ***Step 5: Run the Container to Test the Image***
+- Run the Container:
+
+![alt text](image-17.png)
+
+- Test the Container: 
+  - Open **http://localhost:90** in a browser to verify your custom **index.html** content.
