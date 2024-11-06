@@ -6,6 +6,9 @@
   - [***Microservices***](#microservices)
   - [***Docker***](#docker-1)
   - [***Docker Commands***](#docker-commands)
+  - [***Docker Work Flow - Nginx Container***](#docker-work-flow---nginx-container)
+    - [***Run commands within a container***](#run-commands-within-a-container)
+  - [***Creating my own image***](#creating-my-own-image)
 
 ## ***Differences between Virtualization and Containerization***
 | Feature               | Virtualization                                       | Containerization                                 |
@@ -78,11 +81,53 @@
 
 ## ***Docker Commands***
 - Make sure you run your git bash window as administrator
-- `docker --help`
-- `docker run hello-world` produces a randomly named container 
-- `docker ps` shows which processes are running
-- ` docker run -d -p 80:80 nginx` automatically downloads the latest nginx version
-- `docker ps --help`
-- `docker ps -a`
-- `docker rm <container-name>`
-- `docker exec` executes commands
+- **`docker --help`**
+- **`docker run hello-world`** produces a randomly named container 
+
+![alt text](image.png)
+
+<br>
+
+![alt text](image-1.png)
+
+- **`docker ps`** shows which processes are running
+- **`docker ps --help`**
+- **`docker ps -a`**
+- **`docker rm <container-name>`**
+
+## ***Docker Work Flow - Nginx Container***
+- **`docker run -d -p 80:80 nginx`**: A command that runs a container from the nginx image in detached mode and maps port 80 of the host machine to port 80 in the container. Thisd will be viewable on a webpage for the IP **`127.0.0.1`** or simply input **`localhost`**.
+![alt text](image-2.png)
+
+  - **`-d`**: Detached mode. Makes it run in the background.
+  - **`-p host_port:container_port`**: Maps port on the host machine to the port in the container. Allows external traffic to the host's port to be routed to the container's port.  
+![alt text](image-3.png)
+
+- **`docker stop <container name>`**: Used to stop a container.
+- **`docker ps --all (or -a)`**: Shows all containers, including ones that are not currently active.
+- `docker
+- **`docker start <container name>`**: Start up the chosen container.
+- **`docker remove --force (or -f) <container name>`**: Force removes the container, even if active. To do it without forcing, you must first use **`docker stop`**.
+- **`alis tf="terraform"`**: Sets up an alias for the **`terraform`** command. Can be used to reduce input.
+ 
+### ***Run commands within a container***
+- **`docker exec -it <container ID> sh`**: Used to execute commands within a specified container.
+  - **`-it`**: Combines -i (interactive) and -t (allocates a pseudo-TTY) options to allow interaction with the container's terminal.
+  - **`sh`**: The shell command that opens a shell session inside the container.
+ 
+*Note! This will give you the following error: **`the input device is not a TTY.  If you are using mintty, try prefixing the command with 'winpty'`**. Fear not! This is normal. To fix this, we can use the **`alias`** command we saw ea:*
+ 
+- **`alias docker="winpty docker"`**: This will replace **`docker`** with **`winpty docker`**, adding that preface we required from the error.
+![alt text](image-4.png)
+
+- Running that **`exec`** command will now work, as we've solved he prexifxing issue AND reduced manual input required in the future.
+  
+- The **`#`** means that we are now inside the container.
+ 
+- **`uname -a`**: We can use this command to see the information regarding the container.
+- **`apt-get update -y`**: Updates the local package index to ensure the package lists are current.
+- **`-y`**: Flag for "yes" to skip manual inputs.
+- **`apt-get upgrade -y`**: Upgrades all installed packages to their latest versions based on the current package index
+- **`apt-get install sudo`**: Install sudo onto our container.
+---
+## ***Creating my own image***
