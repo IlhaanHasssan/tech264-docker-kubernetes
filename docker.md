@@ -8,7 +8,13 @@
   - [***Docker Commands***](#docker-commands)
   - [***Docker Work Flow - Nginx Container***](#docker-work-flow---nginx-container)
     - [***Run commands within a container***](#run-commands-within-a-container)
-  - [***Creating my own image***](#creating-my-own-image)
+  - [***Task 1: Create an Image from a Running Container and Push to Docker Hub***](#task-1-create-an-image-from-a-running-container-and-push-to-docker-hub)
+    - [Step 1: Commit the Running Container as a New Image](#step-1-commit-the-running-container-as-a-new-image)
+    - [***Step 2: Push the Image to Docker Hub***](#step-2-push-the-image-to-docker-hub)
+    - [***Step 3: Run the Image from Docker Hub***](#step-3-run-the-image-from-docker-hub)
+  - [***Automate Creation of a Custom NGINX Docker Image with Modified index.html***](#automate-creation-of-a-custom-nginx-docker-image-with-modified-indexhtml)
+- [Use the official NGINX base image](#use-the-official-nginx-base-image)
+- [Copy custom index.html to NGINX default location](#copy-custom-indexhtml-to-nginx-default-location)
 
 ## ***Differences between Virtualization and Containerization***
 | Feature               | Virtualization                                       | Containerization                                 |
@@ -130,4 +136,127 @@
 - **`apt-get upgrade -y`**: Upgrades all installed packages to their latest versions based on the current package index
 - **`apt-get install sudo`**: Install sudo onto our container.
 ---
-## ***Creating my own image***
+
+## ***Task 1: Create an Image from a Running Container and Push to Docker Hub***
+- This is our NGINX page without modification
+
+![alt text](image-5.png)
+
+### Step 1: Commit the Running Container as a New Image
+
+1. **Identify the Running Container**: 
+- List running containers to find the one with the modified `index.html`.
+
+![alt text](image-7.png)
+
+```bash
+   docker ps
+```
+- Note down the Container ID of your NGINX container.
+- Commit the Container to Create an Image:
+
+```bash
+docker commit <container-id> ihassan777/custom-nginx-image:latest
+```
+
+- Verify the New Image:
+
+```bash
+docker images
+```
+### ***Step 2: Push the Image to Docker Hub***
+1. Log in to Docker Hub Online:
+2. Push the Image:
+
+```bash
+docker push ihassan777/custom-nginx-image:latest
+```
+
+### ***Step 3: Run the Image from Docker Hub***
+3. Remove the Local Image (Optional):
+
+```bash
+docker rm ihassan777/custom-nginx-image:latest
+```
+4. Run the Container from Docker Hub:
+
+```bash
+docker run -d -p 90:80 ihassan777/custom-nginx-image:latest
+# -d runs in detached mode.
+# -p 90:80 maps port 90 on your machine to port 80 in the container.
+```
+![alt text](image-10.png)
+
+5. Test the Container: 
+   - Open **http://localhost:90** in a browser to verify your custom **index.html** content.
+   
+![alt text](image-6.png)
+
+
+## ***Automate Creation of a Custom NGINX Docker Image with Modified index.html***
+
+Step 1: Set Up the Folder Structure
+Create a New Folder:
+
+bash
+Copy code
+mkdir tech2xx-mod-nginx-dockerfile
+cd tech2xx-mod-nginx-dockerfile
+Create an index.html File:
+
+bash
+Copy code
+touch index.html
+Edit index.html: Add your custom HTML content.
+
+html
+Copy code
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom NGINX Page</title>
+</head>
+<body>
+    <h1>Hello, this is a custom NGINX page!</h1>
+</body>
+</html>
+Step 2: Create the Dockerfile
+Create a Dockerfile:
+
+bash
+Copy code
+touch Dockerfile
+Edit the Dockerfile:
+
+dockerfile
+Copy code
+# Use the official NGINX base image
+FROM nginx:latest
+
+# Copy custom index.html to NGINX default location
+COPY index.html /usr/share/nginx/html/index.html
+Step 3: Build the Custom Docker Image
+Build the Image:
+
+bash
+Copy code
+docker build -t <your-dockerhub-username>/tech2xx-nginx-auto:v1 .
+Verify the Image:
+
+bash
+Copy code
+docker images
+Step 4: Push the Custom Image to Docker Hub
+Push the Image:
+bash
+Copy code
+docker push <your-dockerhub-username>/tech2xx-nginx-auto:v1
+Step 5: Run the Container to Test the Image
+Run the Container:
+
+bash
+Copy code
+docker run -d -p 90:80 <your-dockerhub-username>/tech2xx-nginx-auto:v1
+Test the Container: Open http://localhost:90 in a browser to verify your custom index.html content.
