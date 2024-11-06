@@ -9,7 +9,7 @@
   - [***Docker Work Flow - Nginx Container***](#docker-work-flow---nginx-container)
     - [***Run commands within a container***](#run-commands-within-a-container)
   - [***Task 1: Create an Image from a Running Container and Push to Docker Hub***](#task-1-create-an-image-from-a-running-container-and-push-to-docker-hub)
-    - [Step 1: Commit the Running Container as a New Image](#step-1-commit-the-running-container-as-a-new-image)
+    - [***Step 1: Commit the Running Container as a New Image***](#step-1-commit-the-running-container-as-a-new-image)
     - [***Step 2: Push the Image to Docker Hub***](#step-2-push-the-image-to-docker-hub)
     - [***Step 3: Run the Image from Docker Hub***](#step-3-run-the-image-from-docker-hub)
   - [***Automate Creation of a Custom NGINX Docker Image with Modified index.html***](#automate-creation-of-a-custom-nginx-docker-image-with-modified-indexhtml)
@@ -18,6 +18,11 @@
     - [***Step 3: Build the Custom Docker Image***](#step-3-build-the-custom-docker-image)
     - [***Step 4: Push the Custom Image to Docker Hub***](#step-4-push-the-custom-image-to-docker-hub)
     - [***Step 5: Run the Container to Test the Image***](#step-5-run-the-container-to-test-the-image)
+  - [***Create an image with the Sparta Test App***](#create-an-image-with-the-sparta-test-app)
+    - [***Step 1: Create a new repo with app folder and Dockerfile***](#step-1-create-a-new-repo-with-app-folder-and-dockerfile)
+    - [***Step 2: Build your image***](#step-2-build-your-image)
+    - [***Step 3: Push to Docker Hub***](#step-3-push-to-docker-hub)
+    - [***Step 4: Get your app page up***](#step-4-get-your-app-page-up)
 
 ## ***Differences between Virtualization and Containerization***
 | Feature               | Virtualization                                       | Containerization                                 |
@@ -145,7 +150,7 @@
 
 ![alt text](image-5.png)
 
-### Step 1: Commit the Running Container as a New Image
+### ***Step 1: Commit the Running Container as a New Image***
 
 1. **Identify the Running Container**: 
 - List running containers to find the one with the modified `index.html`.
@@ -244,3 +249,55 @@ docker images
 
 - Test the Container: 
   - Open **http://localhost:90** in a browser to verify your custom **index.html** content.
+
+
+## ***Create an image with the Sparta Test App***
+### ***Step 1: Create a new repo with app folder and Dockerfile***
+1. In a gitbash window, cd into your github folder and create a folder named **`tech264-docker-app`**
+2. Copy over the **Sparta Test App** folder from another one of your repos that contains it
+3. Create a [Dockerfile](/tech264-docker-app/Dockerfile) that outlines how we're going to download NodeJS and copy the app folder
+
+![alt text](image-18.png)
+
+---
+### ***Step 2: Build your image***
+
+![alt text](image-19.png)
+
+---
+- You can check if it has built using **`docker images`**
+
+![alt text](image-20.png)
+
+- You can run it locally to check if it is working using *`docker run -d -p 3000:3000 sparta-test-app:v1-no-db`*
+  
+### ***Step 3: Push to Docker Hub***
+1. Firstly, tag your image on dockerhub
+<br>
+
+![alt text](image-21.png)
+
+2. Now you can push to dockerhub
+<br>
+
+![alt text](image-22.png)
+
+3. Once you have pushed, you should be able to see your pushed image in your online repos
+
+![alt text](image-27.png)
+
+### ***Step 4: Get your app page up***
+- Run this command to start your docker container
+
+![alt text](image-23.png)
+
+- You can check it is running using **`docker ps`**
+ 
+![alt text](image-24.png)
+
+- Test the Container: 
+  - Open **http://localhost:3000** in a browser to verify your custom Sparta Test App is running
+
+![alt text](image-25.png)
+
+![alt text](image-26.png)
