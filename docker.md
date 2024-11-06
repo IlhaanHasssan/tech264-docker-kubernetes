@@ -23,6 +23,13 @@
     - [***Step 2: Build your image***](#step-2-build-your-image)
     - [***Step 3: Push to Docker Hub***](#step-3-push-to-docker-hub)
     - [***Step 4: Get your app page up***](#step-4-get-your-app-page-up)
+  - [***Use Docker Compose to run app and database containers***](#use-docker-compose-to-run-app-and-database-containers)
+    - [***Pre-requisites***](#pre-requisites)
+    - [***Step 1: Pull a MongoDB image from Docker Hub***](#step-1-pull-a-mongodb-image-from-docker-hub)
+    - [Step 2: Create a docker-compose.yaml file\*\*](#step-2-create-a-docker-composeyaml-file)
+    - [***Step 3: Run your docker-compose.yaml file***](#step-3-run-your-docker-composeyaml-file)
+    - [***Step 4: Seed the /posts page manually***](#step-4-seed-the-posts-page-manually)
+    - [***Step 5: Check your home and /posts pages***](#step-5-check-your-home-and-posts-pages)
 
 ## ***Differences between Virtualization and Containerization***
 | Feature               | Virtualization                                       | Containerization                                 |
@@ -301,3 +308,46 @@ docker images
 ![alt text](image-25.png)
 
 ![alt text](image-26.png)
+
+---
+---
+## ***Use Docker Compose to run app and database containers***
+### ***Pre-requisites***
+  - Ensure Docker and Docker Compose are installed on your machine.
+- Have the Node app image and MongoDB image ready. You can either pull an official MongoDB image from Docker Hub (version 7.0.6)
+- Ensure you have your Node Sparta Test App image locally available.
+
+### ***Step 1: Pull a MongoDB image from Docker Hub***
+- Use **`docker pull mongo:7.0.6`**
+![alt text](image-28.png)
+
+- Once the image has been downloaded, check if this was successful using **`docker images`**
+![alt text](image-29.png)
+
+### Step 2: Create a docker-compose.yaml file**
+- In a gitbash window, create a **`docker-compose.yaml`** file in the **`tech264-docker-app`** folder
+- Inside this file, there should be both the app and db services specified from their respective images, as well as ports
+![alt text](image-30.png)
+
+- This [docker-compose.yaml](/tech264-docker-app/docker-compose.yaml) file shows the automated way to **seed the /posts** page
+
+### ***Step 3: Run your docker-compose.yaml file***
+- Once your **`docker-compose.yaml`** file is properly provisioned, you can now run it using **`docker-compose up -d`**
+![alt text](image-31.png)
+
+### ***Step 4: Seed the /posts page manually*** 
+- Log into the app container using **`docker exec -it <app-container-name> bash`**
+- Inside the container, manually run the seed script using
+**`node seeds/seed.js`**
+
+### ***Step 5: Check your home and /posts pages***
+- Now that you have run the **`docker-compose.yaml`** file, you should be able to view both the home and /posts pages from your localhost.
+- Test the Container: 
+  - Open **http://localhost:3000** in a browser to verify your custom Sparta Test App is running
+  - Open **http://localhost:3000/posts** in a browser to verify the /posts page is running and seeded
+
+![alt text](image-32.png)
+
+<br>
+
+![alt text](image-33.png)
