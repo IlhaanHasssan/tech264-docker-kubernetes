@@ -84,7 +84,7 @@
 ## ***Docker***
 
 - **What Is It?**  
-  Docker is an open-source platform designed to simplify application deployment using containers.
+  - Docker is an open-source platform designed to simplify application deployment using containers.
 
 - **Alternatives**  
   - Podman
@@ -93,7 +93,7 @@
   - OpenVZ
 
 - **How It Works (Docker Architecture/API)**  
-  Docker uses a client-server architecture, with the Docker Client communicating with the Docker Daemon to manage containers. The Daemon handles container lifecycle, resource allocation, and API requests.
+  - Docker uses a client-server architecture, with the Docker Client communicating with the Docker Daemon to manage containers. The Daemon handles container lifecycle, resource allocation, and API requests.
 
 - **Success Story Using Docker**  
   Companies like Netflix, Spotify, and PayPal use Docker to scale microservices, reduce deployment times, and increase application efficiency.
@@ -160,7 +160,7 @@
 ### ***Step 1: Commit the Running Container as a New Image***
 
 1. **Identify the Running Container**: 
-- List running containers to find the one with the modified `index.html`.
+- List running containers to find the one with the modified **`index.html`**.
 
 ![alt text](image-7.png)
 
