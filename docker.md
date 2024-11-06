@@ -26,7 +26,7 @@
   - [***Use Docker Compose to run app and database containers***](#use-docker-compose-to-run-app-and-database-containers)
     - [***Pre-requisites***](#pre-requisites)
     - [***Step 1: Pull a MongoDB image from Docker Hub***](#step-1-pull-a-mongodb-image-from-docker-hub)
-    - [Step 2: Create a docker-compose.yaml file\*\*](#step-2-create-a-docker-composeyaml-file)
+    - [***Step 2: Create a docker-compose.yaml file***](#step-2-create-a-docker-composeyaml-file)
     - [***Step 3: Run your docker-compose.yaml file***](#step-3-run-your-docker-composeyaml-file)
     - [***Step 4: Seed the /posts page manually***](#step-4-seed-the-posts-page-manually)
     - [***Step 5: Check your home and /posts pages***](#step-5-check-your-home-and-posts-pages)
@@ -324,7 +324,7 @@ docker images
 - Once the image has been downloaded, check if this was successful using **`docker images`**
 ![alt text](image-29.png)
 
-### Step 2: Create a docker-compose.yaml file**
+### ***Step 2: Create a docker-compose.yaml file***
 - In a gitbash window, create a **`docker-compose.yaml`** file in the **`tech264-docker-app`** folder
 - Inside this file, there should be both the app and db services specified from their respective images, as well as ports
 ![alt text](image-30.png)
