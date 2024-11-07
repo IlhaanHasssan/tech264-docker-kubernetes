@@ -26,7 +26,7 @@
       - [***Restrict API Server Access***](#restrict-api-server-access)
   - [***Maintained Images***](#maintained-images)
     - [***What are they?***](#what-are-they)
-    - [**Pros and Cons of Using Maintained Images**](#pros-and-cons-of-using-maintained-images)
+    - [***Pros and Cons of Using Maintained Images***](#pros-and-cons-of-using-maintained-images)
   - [***How to download Kubernetes***](#how-to-download-kubernetes)
 
 
@@ -157,18 +157,17 @@ Some common Kubernetes objects include:
 ## ***Maintained Images***
 ### ***What are they?***
 - **Maintained Images**: Using regularly updated and secure base images.
-### **Pros and Cons of Using Maintained Images**
+### ***Pros and Cons of Using Maintained Images***
 | **Pros of Maintained Images**                                | **Cons of Maintained Images**                               |
 |--------------------------------------------------------------|-------------------------------------------------------------|
 | **Security Updates**: Regular updates reduce vulnerabilities and enhance security. | **Dependency Bloat**: Maintained images might include unnecessary dependencies, increasing image size and attack surface. |
 | **Reliability**: Maintainers address bugs and compatibility issues, improving stability. | **Lack of Customization**: Pre-built images may lack flexibility for specific application needs. |
 | **Compliance**: Maintained images often meet industry standards for security and performance. | **Delayed Updates**: Updates may not align with project-specific needs or schedules. |
 | **Community Support**: Access to documentation, forums, and community resources for troubleshooting. | **Dependency Risks**: Images may rely on external libraries or software that could introduce vulnerabilities. |
-| **Easier Management**: Reduces burden on teams to build and maintain their own images. | **Potential Licensing Issues**: Maintained images may come with licensing constraints or restrictions. |
+ **Easier Management**: Reduces burden on teams to build and maintain their own images. | **Potential Licensing Issues**: Maintained images may come with licensing constraints or restrictions. |
 
 ---
-
-
+---
 ## ***How to download Kubernetes***
 1. Open **Docker Desktop**, make sure you run as **administator**
 2. Find the Kubernetes panel, inside the **settings**
