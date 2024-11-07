@@ -55,6 +55,7 @@ Many companies have adopted Kubernetes for its efficiency and reliability:
 
 ## ***Kubernetes Architecture: The Cluster Setup***
 
+![alt text](image-34.png)
 
 ### ***What is a Cluster?***
 

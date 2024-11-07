@@ -1,10 +1,10 @@
-# ***DOCKER***
-- [***DOCKER***](#docker)
+# ***DOCKER*** 🐳
+- [***DOCKER*** 🐳](#docker-)
   - [***Differences between Virtualization and Containerization***](#differences-between-virtualization-and-containerization)
     - [***What is Included in a Container vs Virtual Machine***](#what-is-included-in-a-container-vs-virtual-machine)
     - [***Benefits of Each, Especially Virtual Machine Over Traditional Architecture***](#benefits-of-each-especially-virtual-machine-over-traditional-architecture)
-  - [***Microservices***](#microservices)
-  - [***Docker***](#docker-1)
+  - [***Microservices*** 🔬](#microservices-)
+  - [***Docker***](#docker)
   - [***Docker Commands***](#docker-commands)
   - [***Docker Work Flow - Nginx Container***](#docker-work-flow---nginx-container)
     - [***Run commands within a container***](#run-commands-within-a-container)
@@ -66,7 +66,7 @@
 
 ---
 
-## ***Microservices***
+## ***Microservices*** 🔬
 
 - **What Are They?**  
   Microservices are a design pattern for building an application as a collection of small, loosely coupled services, each responsible for a specific functionality.
