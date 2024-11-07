@@ -82,8 +82,8 @@ A cluster in Kubernetes is a set of nodes (physical or virtual machines) that ru
 
 | Plane           | Description                                                                   |
 |-----------------|-------------------------------------------------------------------------------|
-| **Control Plane** | Manages the Kubernetes cluster (API server, scheduler, etc.).                 |
-| **Data Plane**   | Runs the applications and handles data processing (containers, storage, etc.). |
+| **Control Plane** | Manages the Kubernetes cluster (API server, scheduler, etc.). Master node works on control plane.                 |
+| **Data Plane**   | Runs the applications and handles data processing (containers, storage, etc.). Worker nodes work on data plane |
 
 ## ***Kubernetes Objects***
 
