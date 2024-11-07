@@ -27,8 +27,6 @@
   - [***Maintained Images***](#maintained-images)
     - [***What are they?***](#what-are-they)
     - [**Pros and Cons of Using Maintained Images**](#pros-and-cons-of-using-maintained-images)
-  - [***How Terraform and Ansible fit into the bigger picture***](#how-terraform-and-ansible-fit-into-the-bigger-picture)
-  - [***Greenfielding vs Brownfielding***](#greenfielding-vs-brownfielding)
 
 
 ## ***Why is Kubernetes Needed?***
@@ -135,8 +133,8 @@ Some common Kubernetes objects include:
    - Limit images to those from trusted registries, preferably private or organizational ones.
 
 #### ***Limit Container Runtime Privileges***
-   - Avoid running containers as the root user. Instead, specify a non-root user in your `Dockerfile` or `Pod` spec.
-   - Set the `runAsNonRoot` and `allowPrivilegeEscalation=false` in Pod specifications to prevent unnecessary privilege escalation.
+   - Avoid running containers as the root user. Instead, specify a non-root user in your **`Dockerfile`** or **`Pod`** spec.
+   - Set the **`runAsNonRoot`** and **`allowPrivilegeEscalation=false`** in Pod specifications to prevent unnecessary privilege escalation.
 
 #### ***Enable Logging and Monitoring***
    - Use Kubernetes logging and monitoring tools (e.g., **Prometheus**, **Fluentd**, **Grafana**) to track container activity and detect anomalies.
@@ -168,22 +166,5 @@ Some common Kubernetes objects include:
 | **Easier Management**: Reduces burden on teams to build and maintain their own images. | **Potential Licensing Issues**: Maintained images may come with licensing constraints or restrictions. |
 
 ---
-## ***How Terraform and Ansible fit into the bigger picture***
-<br>
-
-![alt text](./dk-images/image.png)
-
-<br>
-
----
-## ***Greenfielding vs Brownfielding***
-- Greenfielding means starting a project or development from scratch. Think of it as building on an empty "green field," where you have no existing structures or constraints to worry about. You get to design everything from the ground up, using the latest tools, technologies, and best practices without dealing with any outdated or legacy systems.
-
-- Brownfielding is the opposite—working on or improving an existing project or system. Imagine building on a "brown field" that already has old buildings or structures on it. In this case, you have to work with or around what’s already there, which may include outdated tech or design choices that make changes or upgrades more complicated.
-
-**In summary:**
-
-- Greenfield: New project, starting fresh, total freedom.
-- Brownfield: Existing project, updating or improving, dealing with old setups.
 
 
