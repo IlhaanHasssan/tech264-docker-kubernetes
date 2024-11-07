@@ -92,7 +92,7 @@ Some common Kubernetes objects include:
 - **ReplicaSets**: Ensure specified number of pod replicas are running.
 - **Pods**: The smallest deployable units, which encapsulate one or more containers.
 - **Services**: Exposes a set of pods as a network service, allowing internal and external access
-- **ConfigMaps and Secrets**: Store config data and sensitive information respectively, to be used by people
+- **ConfigMaps and Secrets**: Store config data and sensitive information respectively, to be used by people. Secrets are encoded in bas64, not encrypted
 - **Volumes**: Used to persist data from containers and pods to eliminate potential data loss from destruction of pods
 
 ### ***What Does It Mean a Pod is "Ephemeral"?***
