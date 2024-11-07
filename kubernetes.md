@@ -91,10 +91,13 @@ Some common Kubernetes objects include:
 - **Deployments**: Manage and scale sets of pods.
 - **ReplicaSets**: Ensure specified number of pod replicas are running.
 - **Pods**: The smallest deployable units, which encapsulate one or more containers.
+- **Services**: Exposes a set of pods as a network service, allowing internal and external access
+- **ConfigMaps and Secrets**: Store config data and sensitive information respectively, to be used by people
+- **Volumes**: Used to persist data from containers and pods to eliminate potential data loss from destruction of pods
 
 ### ***What Does It Mean a Pod is "Ephemeral"?***
 
-- When we say a pod is "ephemeral," it means that the pod's lifespan is temporary and it can be created or destroyed as needed. Pods do not retain data between restarts, making them ideal for running short-lived tasks.
+- When we say a pod is "ephemeral," it means that the pod's lifespan is temporary and it can be created or destroyed as needed and re-created on different nodes. Pods do not retain data between restarts, making them ideal for running short-lived tasks.
 
 ## ***How to Mitigate Security Concerns with Containers***
 
