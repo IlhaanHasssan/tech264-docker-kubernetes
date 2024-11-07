@@ -94,6 +94,9 @@ Some common Kubernetes objects include:
 - **Services**: Exposes a set of pods as a network service, allowing internal and external access
 - **ConfigMaps and Secrets**: Store config data and sensitive information respectively, to be used by people. Secrets are encoded in bas64, not encrypted
 - **Volumes**: Used to persist data from containers and pods to eliminate potential data loss from destruction of pods
+- **Namespace**: Used as a logical way to group pods in Kubernetes, if you do not specify a namespaced, pods will be assigned to a default. 
+
+![alt text](image-35.png)
 
 ### ***What Does It Mean a Pod is "Ephemeral"?***
 
