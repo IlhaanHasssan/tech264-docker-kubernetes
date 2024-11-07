@@ -27,6 +27,7 @@
   - [***Maintained Images***](#maintained-images)
     - [***What are they?***](#what-are-they)
     - [**Pros and Cons of Using Maintained Images**](#pros-and-cons-of-using-maintained-images)
+  - [***How to download Kubernetes***](#how-to-download-kubernetes)
 
 
 ## ***Why is Kubernetes Needed?***
@@ -166,5 +167,17 @@ Some common Kubernetes objects include:
 | **Easier Management**: Reduces burden on teams to build and maintain their own images. | **Potential Licensing Issues**: Maintained images may come with licensing constraints or restrictions. |
 
 ---
+
+
+## ***How to download Kubernetes***
+1. Open **Docker Desktop**, make sure you run as **administator**
+2. Find the Kubernetes panel, inside the **settings**
+![alt text](image-36.png)
+
+3. **Enable Kubernetes**, select **Apply & Restart**. This may take a few minutes. Once the window has restarted, you should be able to see *kubernetes running* in the bottom corner of the desktop window.
+![alt text](image-37.png)
+
+4. Open a **GitBash** window, run the command **`kubectl get all`** and now your kubernetes service should be running.
+![alt text](image-38.png)
 
 
